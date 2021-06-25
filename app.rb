@@ -28,9 +28,9 @@ post "/#{ENV['SECRET_PATH']}" do
       Pony.mail({
         :to => ENV['MAIL_TO'],
         :from => ENV['MAIL_TO'],
-        :"reply_to" => "#{params['name']} <#{params["email"]}>",
+        :"reply_to" => "#{params['name']} <#{params["_replyto"]}>",
         :subject => ENV['MAIL_SUBJECT'],
-        :body => "#{params['name']} <#{params['email']}> wrote: \n\n#{params['message']}",
+        :body => "#{params['name']} <#{params['_replyto']}> wrote: \n\n#{params['content']} \n\nRestaurant: #{params['restaurant']}",
         :via => :smtp,
         :via_options => {
           :address              => ENV['SMTP_HOST'],
