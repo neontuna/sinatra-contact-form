@@ -44,6 +44,7 @@ post "/#{ENV['SECRET_PATH']}" do
       })
       redirect "#{ENV['SITE_URL']}#{ENV['SITE_THANK_YOU_PATH']}"
     else
+      puts j
       redirect "#{ENV['SITE_URL']}#{ENV['SITE_ROBOT_PATH']}?captcha-fail"
     end
   rescue => e
